@@ -1,0 +1,36 @@
+name: Multitool
+version: 1.3.25
+author: Darkolythe
+main: me.darkolythe.multitool.Multitool
+api-version: 1.13
+description: This plugin allows the use of multiple tools in one item, and switches them automatically based on what's being hit
+
+commands:
+    multitool:
+        usage: /<command> [open / toggle / reload]
+        aliases: [mt]
+        description: the main Multitool command
+        permission: multitool.command
+        permission-message: You do not have permission!
+        
+permissions:
+    multitool.use:
+        description: Allows the use of a multitool
+        default: true
+    multitool.command:
+        description: Allows the use of multitool commands
+        default: true
+    multitool.reload:
+        description: Reloads the multitool config
+        default: op
+    multitool.useothers:
+        description: Allows the opening of other players' multitools
+        default: op
+    multitool.*:
+        description: Wildcard permission
+        default: op
+        children:
+            multitool.use: true
+            multitool.command: true
+            multitool.reload: true
+            multitool.useothers: true
