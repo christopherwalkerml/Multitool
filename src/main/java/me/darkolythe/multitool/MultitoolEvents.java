@@ -29,7 +29,7 @@ public class MultitoolEvents implements Listener {
 	public void onItemDrop(PlayerDropItemEvent event) {
 		Item dropitem = event.getItemDrop();
 		ItemStack dropstack = dropitem.getItemStack();
-		if (main.isTool(dropstack)) {
+		if (main.multitoolutils.isTool(dropstack)) {
 			dropitem.remove();
 			event.getPlayer().sendMessage(main.prefix + ChatColor.RED + "You dropped your Multitool!");
 		}
@@ -38,8 +38,8 @@ public class MultitoolEvents implements Listener {
 	@EventHandler
 	public void onItemBreak(PlayerItemBreakEvent event) {
 		ItemStack brokenitem = event.getBrokenItem();
-		if (main.isTool(brokenitem)) {
-			Inventory mtinv = main.getToolInv(event.getPlayer()); //create inventory of mtinv
+		if (main.multitoolutils.isTool(brokenitem)) {
+			Inventory mtinv = main.multitoolutils.getToolInv(event.getPlayer()); //create inventory of mtinv
 			for (int i = 0; i < 4; i++) {
 				if (mtinv.getItem(i).getType() == brokenitem.getType()) {
 					mtinv.setItem(i, main.placeholders.get(i));
@@ -54,14 +54,14 @@ public class MultitoolEvents implements Listener {
 		if ((event.getClickedInventory() != player.getInventory()) || (event.isShiftClick())) {
 			if ((player.getItemOnCursor().getType() != Material.AIR)) {
 				ItemStack cursorstack = player.getItemOnCursor();
-				if (main.isTool(cursorstack)) {
+				if (main.multitoolutils.isTool(cursorstack)) {
 					player.setItemOnCursor(null);
 					event.setCancelled(true);
 					player.sendMessage(main.prefix + ChatColor.RED + "You removed your Multitool!");
 				}
 			} else if (event.isShiftClick() && event.getCurrentItem() != null && event.getCurrentItem().getType() != Material.AIR) {
 				ItemStack clickstack = event.getCurrentItem();
-				if (main.isTool(clickstack)) {
+				if (main.multitoolutils.isTool(clickstack)) {
 					event.setCurrentItem(null);
 					event.setCancelled(true);
 					player.sendMessage(main.prefix + ChatColor.RED + "You removed your Multitool!");
@@ -69,13 +69,13 @@ public class MultitoolEvents implements Listener {
 			} else if (event.getClick() == ClickType.NUMBER_KEY) {
 				ItemStack item = player.getInventory().getItem(event.getHotbarButton());
 				if (item != null && item.getType() != Material.AIR) {
-					if (main.isTool(item)) {
+					if (main.multitoolutils.isTool(item)) {
 						player.getInventory().setItem(event.getHotbarButton(), null);
 						event.setCancelled(true);
 						player.sendMessage(main.prefix + ChatColor.RED + "You removed your Multitool!");
 					}
 				}
-			} else if (main.isTool(event.getCurrentItem())) {
+			} else if (main.multitoolutils.isTool(event.getCurrentItem())) {
 				event.setCurrentItem(null);
 				event.setCancelled(true);
 				player.sendMessage(main.prefix + ChatColor.RED + "Your Multitool was outside your inventory. It has been removed!");
@@ -88,7 +88,7 @@ public class MultitoolEvents implements Listener {
 		if (event.getOldCursor().getType() != Material.AIR) {
 			if (event.getInventory().getType() != InventoryType.PLAYER) {
 				ItemStack clickstack = event.getOldCursor();
-				if (main.isTool(clickstack)) {
+				if (main.multitoolutils.isTool(clickstack)) {
 					event.setCancelled(true);
 				}
 			}
@@ -106,7 +106,7 @@ public class MultitoolEvents implements Listener {
 						}
 					}
 					main.toolinv.remove(event.getEntity().getUniqueId());
-					main.getToolInv(event.getEntity());
+					main.multitoolutils.getToolInv(event.getEntity());
 				}
 			}
 		}
@@ -114,7 +114,7 @@ public class MultitoolEvents implements Listener {
 		for (ItemStack i : drops) {
 			ItemMeta dropmeta = i.getItemMeta();
 			if (dropmeta != null) {
-				if (main.isTool(i)) {
+				if (main.multitoolutils.isTool(i)) {
 					i.setType(Material.AIR);
 					if (!main.dropondeath) {
 						event.getEntity().sendMessage(main.prefix + ChatColor.RED + "You died, so your Multitool was put away!");
@@ -128,7 +128,7 @@ public class MultitoolEvents implements Listener {
 	public void onEntityInteract(PlayerInteractEntityEvent event) {
 		Player player = event.getPlayer();
 		ItemStack handitem = player.getInventory().getItemInMainHand();
-		if (main.isTool(handitem)) {
+		if (main.multitoolutils.isTool(handitem)) {
 			Entity ent = event.getRightClicked();
 			if (ent.getType() == EntityType.ITEM_FRAME) {
 				if (((ItemFrame)ent).getItem().getType() == Material.AIR) {

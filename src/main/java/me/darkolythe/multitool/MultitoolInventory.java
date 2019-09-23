@@ -160,7 +160,7 @@ public class MultitoolInventory implements Listener {
 											for (ItemStack i : plrinv) {
 												if (i != null) {
 													if (i.getItemMeta() != null) {
-														if (main.isTool(i)) {
+														if (main.multitoolutils.isTool(i)) {
 															hasitem = true;
 														}
 													}
@@ -195,7 +195,7 @@ public class MultitoolInventory implements Listener {
 									for (ItemStack i : plrinv) {
 										if (i != null) {
 											if (i.getItemMeta() != null) {
-												if (main.isTool(i)) {
+												if (main.multitoolutils.isTool(i)) {
 													plrinv.remove(i);
 													player.sendMessage(main.prefix + ChatColor.RED + "You removed a tool from your Multitool!");
 													event.setCancelled(true);

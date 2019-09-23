@@ -20,10 +20,10 @@ public class MultitoolCommand implements CommandExecutor {
 				if (cmd.getName().equalsIgnoreCase("Multitool")) {
 					if (args.length == 1) {
 						if (args[0].equalsIgnoreCase("Open") || args[0].equalsIgnoreCase("O")) {
-							player.openInventory(main.getToolInv(player));
+							player.openInventory(main.multitoolutils.getToolInv(player));
 						} else if (args[0].equalsIgnoreCase("Toggle") || args[0].equalsIgnoreCase("T")) {
-							main.setToggle(player.getUniqueId(), !main.getToggle(player.getUniqueId()));
-							if (main.getToggle(player.getUniqueId())) {
+							main.multitoolutils.setToggle(player.getUniqueId(), !main.multitoolutils.getToggle(player.getUniqueId()));
+							if (main.multitoolutils.getToggle(player.getUniqueId())) {
 								sender.sendMessage(main.prefix + ChatColor.GREEN + "Multitool On!");
 							} else {
 								sender.sendMessage(main.prefix + ChatColor.GREEN + "Multitool Off!");
@@ -35,7 +35,7 @@ public class MultitoolCommand implements CommandExecutor {
 
 						for (Player players : Bukkit.getServer().getOnlinePlayers()) {
 							if (args[1].equalsIgnoreCase(players.getName())) {
-								player.openInventory(main.getToolInv(players));
+								player.openInventory(main.multitoolutils.getToolInv(players));
 								return true;
 							}
 						}

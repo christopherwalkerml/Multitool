@@ -22,7 +22,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class MultitoolToolDetect implements Listener {
 	
-private Multitool main;
+	private Multitool main;
 	
 	public MultitoolToolDetect(Multitool plugin) {
 		this.main = plugin; // set it equal to an instance of main
@@ -35,7 +35,7 @@ private Multitool main;
 			"CONDUIT", "CRACKED_STONE_BRICKS", "CUT_RED_SANDSTONE", "CUT_RED_SANDSTONE_SLAB", "CUT_SANDSTONE", "CUT_SANDSTONE_SLAB", "CYAN_CONCRETE", "CYAN_GLAZED_TERRACOTTA",
 			"CYAN_SHULKER_BOX", "CYAN_TERRACOTTA", "DAMAGED_ANVIL", "DARK_PRISMARINE", "DARK_PRISMARINE_SLAB", "DARK_PRISMARINE_STAIRS", "DEAD_BRAIN_CORAL_BLOCK", "DEAD_BUBBLE_CORAL_BLOCK",
 			"DEAD_FIRE_CORAL_BLOCK", "DEAD_HORN_CORAL_BLOCK", "DEAD_TUBE_CORAL_BLOCK", "DETECTOR_RAIL", "DIAMOND_BLOCK", "DIAMOND_ORE", "DIORITE", "DIORITE_STAIRS", "DIORITE_WALL", "DISPENSER", "DROPPER", "EMERALD_BLOCK", "EMERALD_ORE",
-			"ENCHANTING_TABLE", "ENDER_CHEST", "END_STONE", "END_STONE_BRICKS", "END_STONE_BRICK_SLAB", "END_STONE_BRICK_STAIRS", "END_STONE_BRICK_WALL", "FIRE_CORAL_BLOCK", "FURNACE", "GLASS", "GLOWSTONE", "GOLD_BLOCK", "GOLD_ORE", "GRANITE", "GRANITE_STAIRS", "GRANITE_WALL", "GRAY_CONCRETE",
+			"ENCHANTING_TABLE", "ENDER_CHEST", "END_STONE", "END_STONE_BRICKS", "END_STONE_BRICK_SLAB", "END_STONE_BRICK_STAIRS", "END_STONE_BRICK_WALL", "FIRE_CORAL_BLOCK", "FURNACE", "GOLD_BLOCK", "GOLD_ORE", "GRANITE", "GRANITE_STAIRS", "GRANITE_WALL", "GRAY_CONCRETE",
 			"GRAY_GLAZED_TERRACOTTA", "GRAY_SHULKER_BOX", "GRAY_TERRACOTTA", "GREEN_CONCRETE", "GREEN_GLAZED_TERRACOTTA", "GREEN_SHULKER_BOX", "GREEN_TERRACOTTA", "GRINDSTONE",
 			"HEAVY_WEIGHTED_PRESSURE_PLATE", "HOPPER", "HORN_CORAL_BLOCK", "ICE", "IRON_BARS", "IRON_BLOCK", "IRON_DOOR", "IRON_ORE", "IRON_TRAPDOOR", "LANTERN", "LAPIS_BLOCK",
 			"LAPIS_ORE", "LIGHT_BLUE_CONCRETE", "LIGHT_BLUE_GLAZED_TERRACOTTA", "LIGHT_BLUE_SHULKER_BOX", "LIGHT_BLUE_TERRACOTTA", "LIGHT_GRAY_CONCRETE", "LIGHT_GRAY_GLAZED_TERRACOTTA",
@@ -47,7 +47,7 @@ private Multitool main;
 			"POWERED_RAIL", "PRISMARINE", "PRISMARINE_BRICKS", "PRISMARINE_BRICK_SLAB", "PRISMARINE_BRICK_STAIRS", "PRISMARINE_SLAB", "PRISMARINE_STAIRS", "PRISMARINE_WALL", "PURPLE_CONCRETE",
 			"PURPLE_GLAZED_TERRACOTTA", "PURPLE_SHULKER_BOX", "PURPLE_TERRACOTTA", "PURPUR_BLOCK", "PURPUR_PILLAR", "PURPUR_SLAB", "PURPUR_STAIRS", "QUARTZ_BLOCK", "QUARTZ_PILLAR",
 			"QUARTZ_SLAB", "QUARTZ_STAIRS", "RAIL", "REDSTONE_BLOCK", "REDSTONE_ORE", "RED_CONCRETE", "RED_GLAZED_TERRACOTTA", "RED_NETHER_BRICKS", "RED_NETHER_BRICK_SLAB", "RED_NETHER_BRICK_STAIRS", "RED_NETHER_BRICK_WALL", "RED_SANDSTONE",
-			"RED_SANDSTONE_SLAB", "RED_SANDSTONE_STAIRS", "RED_SANDSTONE_WALL", "RED_SHULKER_BOX", "RED_TERRACOTTA", "SANDSTONE", "SANDSTONE_SLAB", "SANDSTONE_STAIRS", "SANDSTONE_WALL", "SHULKER_BOX", "SMOOTH_QUARTZ",
+			"RED_SANDSTONE_SLAB", "RED_SANDSTONE_STAIRS", "RED_SANDSTONE_WALL", "RED_SHULKER_BOX", "RED_TERRACOTTA", "SANDSTONE", "SANDSTONE_SLAB", "SANDSTONE_STAIRS", "SANDSTONE_WALL", "SHULKER_BOX", "SMOKER", "SMOOTH_QUARTZ",
 			"SMOOTH_QUARTZ_SLAB", "SMOOTH_QUARTZ_STAIRS", "SMOOTH_RED_SANDSTONE", "SMOOTH_RED_SANDSTONE_SLAB", "SMOOTH_RED_SANDSTONE_STAIRS", "SMOOTH_SANDSTONE", "SMOOTH_SANDSTONE_SLAB", "SMOOTH_SANDSTONE_STAIRS", "SMOOTH_STONE", "SMOOTH_STONE_SLAB", "SPAWNER", "STONE",
 			"STONECUTTER", "STONE_BRICKS", "STONE_BRICK_SLAB", "STONE_BRICK_STAIRS", "STONE_BRICK_WALL", "STONE_BUTTON", "STONE_PRESSURE_PLATE", "STONE_SLAB", "STONE_STAIRS", "TERRACOTTA", "TUBE_CORAL_BLOCK", "WHITE_CONCRETE",
 			"WHITE_GLAZED_TERRACOTTA", "WHITE_SHULKER_BOX", "WHITE_TERRACOTTA", "YELLOW_CONCRETE", "YELLOW_GLAZED_TERRACOTTA", "YELLOW_SHULKER_BOX", "YELLOW_TERRACOTTA");
@@ -61,7 +61,7 @@ private Multitool main;
 			"GREEN_WALL_BANNER", "JACK_O_LANTERN", "JUKEBOX", "JUNGLE_BUTTON", "JUNGLE_DOOR", "JUNGLE_FENCE", "JUNGLE_FENCE_GATE", "JUNGLE_LOG", "JUNGLE_PLANKS", "JUNGLE_PRESSURE_PLATE",
 			"JUNGLE_SIGN", "JUNGLE_SLAB", "JUNGLE_STAIRS", "JUNGLE_TRAPDOOR", "JUNGLE_WALL_SIGN", "JUNGLE_WOOD", "LADDER", "LECTERN", "LOOM", "MAGENTA_BANNER", "MAGENTA_WALL_BANNER", "MELON", "NOTE_BLOCK", "OAK_BUTTON",
 			"OAK_DOOR", "OAK_FENCE", "OAK_FENCE_GATE", "OAK_LOG", "OAK_PLANKS", "OAK_PRESSURE_PLATE", "OAK_SIGN", "OAK_SLAB", "OAK_STAIRS", "OAK_TRAPDOOR", "OAK_WALL_SIGN", "OAK_WOOD", "PINK_BANNER", "PINK_WALL_BANNER",
-			"PUMPKIN", "PURPLE_BANNER", "PURPLE_WALL_BANNER", "RED_BANNER", "RED_MUSHROOM_BLOCK", "RED_WALL_BANNER", "SMITHING_TABLE", "SMOKER", "SPRUCE_BUTTON", "SPRUCE_DOOR", "SPRUCE_FENCE", "SPRUCE_FENCE_GATE",
+			"PUMPKIN", "PURPLE_BANNER", "PURPLE_WALL_BANNER", "RED_BANNER", "RED_MUSHROOM_BLOCK", "RED_WALL_BANNER", "SMITHING_TABLE", "SPRUCE_BUTTON", "SPRUCE_DOOR", "SPRUCE_FENCE", "SPRUCE_FENCE_GATE",
 			"SPRUCE_LOG", "SPRUCE_PLANKS", "SPRUCE_PRESSURE_PLATE", "SPRUCE_SIGN", "SPRUCE_SLAB", "SPRUCE_STAIRS", "SPRUCE_TRAPDOOR", "SPRUCE_TRAPDOOR", "SPRUCE_WALL_SIGN", "SPRUCE_WOOD", "STRIPPED_ACACIA_LOG",
 			"STRIPPED_ACACIA_WOOD", "STRIPPED_BIRCH_LOG", "STRIPPED_BIRCH_WOOD", "STRIPPED_DARK_OAK_LOG", "STRIPPED_DARK_OAK_WOOD", "STRIPPED_JUNGLE_LOG", "STRIPPED_JUNGLE_WOOD",
 			"STRIPPED_OAK_LOG", "STRIPPED_OAK_WOOD", "STRIPPED_SPRUCE_LOG", "STRIPPED_SPRUCE_WOOD", "TRAPPED_CHEST", "WALL_SIGN", "WHITE_BANNER", "WHITE_WALL_BANNER", "YELLOW_BANNER",
@@ -158,7 +158,7 @@ private Multitool main;
 	private void setItem(Player player, Block block, boolean isSword) {
 		if (player.hasPermission("multitool.use")) { //If the player has permission, continue
 
-			if (main.getToggle(player.getUniqueId())) {
+			if (main.multitoolutils.getToggle(player.getUniqueId())) {
 				//Get item in player"s hand
 				ItemStack handitem = player.getInventory().getItemInMainHand();
 
@@ -176,46 +176,46 @@ private Multitool main;
 							//Check what material it is, and change the tool
 							Material blocktype = block.getType();
 
-							if (blocktype != main.getLastBlock(player.getUniqueId())) {
+							if (blocktype != main.multitoolutils.getLastBlock(player.getUniqueId())) {
 
 								String tooltype = getToolType(blocktype);
 
 								if (tooltype.equals("pickaxe")) {
-									if (main.getToolInv(player).getItem(1) != null) {
-										if (main.getToolInv(player).getItem(1).getType() != Material.GRAY_STAINED_GLASS_PANE) {
+									if (main.multitoolutils.getToolInv(player).getItem(1) != null) {
+										if (main.multitoolutils.getToolInv(player).getItem(1).getType() != Material.GRAY_STAINED_GLASS_PANE) {
 
-											givestack = main.getToolInv(player).getItem(1).clone();
+											givestack = main.multitoolutils.getToolInv(player).getItem(1).clone();
 											main.lastblock.put(player.getUniqueId(), blocktype); //change the last block hit, if the tool was able to be changed
 											giveStack(givestack, player);
 											return;
 										}
 									}
 								} else if (tooltype.equals("shovel")) {
-									if (main.getToolInv(player).getItem(3) != null) {
-										if (main.getToolInv(player).getItem(3).getType() != Material.GRAY_STAINED_GLASS_PANE) {
+									if (main.multitoolutils.getToolInv(player).getItem(3) != null) {
+										if (main.multitoolutils.getToolInv(player).getItem(3).getType() != Material.GRAY_STAINED_GLASS_PANE) {
 
-											givestack = main.getToolInv(player).getItem(3).clone();
+											givestack = main.multitoolutils.getToolInv(player).getItem(3).clone();
 											main.lastblock.put(player.getUniqueId(), blocktype); //change the last block hit, if the tool was able to be changed
 											giveStack(givestack, player);
 											return;
 										}
 									}
 								} else if (tooltype.equals("axe")) {
-									if (main.getToolInv(player).getItem(2) != null) {
-										if (main.getToolInv(player).getItem(2).getType() != Material.GRAY_STAINED_GLASS_PANE) {
+									if (main.multitoolutils.getToolInv(player).getItem(2) != null) {
+										if (main.multitoolutils.getToolInv(player).getItem(2).getType() != Material.GRAY_STAINED_GLASS_PANE) {
 
-											givestack = main.getToolInv(player).getItem(2).clone();
+											givestack = main.multitoolutils.getToolInv(player).getItem(2).clone();
 											main.lastblock.put(player.getUniqueId(), blocktype); //change the last block hit, if the tool was able to be changed
 											giveStack(givestack, player);
 											return;
 										}
 									}
 								} else {
-									if (main.getToolInv(player).getItem(0) != null) {
-										if (main.getToolInv(player).getItem(0).getType() != Material.GRAY_STAINED_GLASS_PANE) {
+									if (main.multitoolutils.getToolInv(player).getItem(0) != null) {
+										if (main.multitoolutils.getToolInv(player).getItem(0).getType() != Material.GRAY_STAINED_GLASS_PANE) {
 											if (blocktype == Material.COBWEB) {
 
-												givestack = main.getToolInv(player).getItem(0).clone();
+												givestack = main.multitoolutils.getToolInv(player).getItem(0).clone();
 												main.lastblock.put(player.getUniqueId(), blocktype); //change the last block hit, if the tool was able to be changed
 												giveStack(givestack, player);
 												return;
@@ -244,11 +244,11 @@ private Multitool main;
 	}
 
 	public boolean giveSword(Player player) {
-		if (main.getToolInv(player).getItem(0) != null) {
-			if (main.getToolInv(player).getItem(0).getType() != Material.GRAY_STAINED_GLASS_PANE) {
-				if (Material.AIR != main.getLastBlock(player.getUniqueId())) {
+		if (main.multitoolutils.getToolInv(player).getItem(0) != null) {
+			if (main.multitoolutils.getToolInv(player).getItem(0).getType() != Material.GRAY_STAINED_GLASS_PANE) {
+				if (Material.AIR != main.multitoolutils.getLastBlock(player.getUniqueId())) {
 
-					ItemStack givestack = main.getToolInv(player).getItem(0).clone();
+					ItemStack givestack = main.multitoolutils.getToolInv(player).getItem(0).clone();
 					main.lastblock.put(player.getUniqueId(), Material.AIR);
 					giveStack(givestack, player);
 					return true;
@@ -284,9 +284,9 @@ private Multitool main;
 
 	public void setMTItem(Player player, boolean changeitem) {
 		for (int i = 0; i < 5; i++) { //this loops through the mt inv, checks which index the current item being used is in, and then updates it
-			if (main.getToolInv(player).getItem(i) != null) {
-				if (main.getToolInv(player).getItem(i).getType() == player.getInventory().getItemInMainHand().getType()) {
-					Inventory mtinv = main.getToolInv(player); //create inventory of mtinv
+			if (main.multitoolutils.getToolInv(player).getItem(i) != null) {
+				if (main.multitoolutils.getToolInv(player).getItem(i).getType() == player.getInventory().getItemInMainHand().getType()) {
+					Inventory mtinv = main.multitoolutils.getToolInv(player); //create inventory of mtinv
 					ItemStack handstack = player.getInventory().getItemInMainHand().clone();
 					ItemMeta stackmeta = handstack.getItemMeta();
 					List<String> lore = new ArrayList<>();
