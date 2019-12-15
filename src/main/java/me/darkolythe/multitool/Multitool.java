@@ -12,9 +12,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Multitool extends JavaPlugin implements Listener {
@@ -23,7 +21,7 @@ public class Multitool extends JavaPlugin implements Listener {
 	public List<ItemStack> placeholders = new ArrayList<>();
 	public HashMap<UUID, Boolean> toggle = new HashMap<>();
 	public HashMap<UUID, Material> lastblock = new HashMap<>();
-	public String prefix = new String(ChatColor.WHITE.toString() + ChatColor.BOLD.toString() + "[" + ChatColor.BLUE.toString() + "Multitool" + ChatColor.WHITE.toString() + ChatColor.BOLD.toString() + "] ");
+	public String prefix = ChatColor.WHITE.toString() + ChatColor.BOLD.toString() + "[" + ChatColor.BLUE.toString() + "Multitool" + ChatColor.WHITE.toString() + ChatColor.BOLD.toString() + "] ";
 	public String toollore = ChatColor.BLUE.toString() + ChatColor.BOLD.toString() + "Multitool";
 
 	public boolean dropondeath;
