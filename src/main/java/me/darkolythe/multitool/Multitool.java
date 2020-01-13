@@ -69,6 +69,7 @@ public class Multitool extends JavaPlugin implements Listener {
 			multitoolutils.playerSave(player); //this saves all the player mt inv information if the server is reloading
 		}
 
+		getConfig().set("droptoolsondeath", dropondeath);
 		saveDefaultConfig();
 		
 		System.out.println(prefix + ChatColor.RED + "Diverse Multitool disabled!");
