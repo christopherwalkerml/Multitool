@@ -96,13 +96,15 @@ public class MultitoolToolDetect implements Listener {
 
 									int tooltype = getToolType(blocktype);
 
-									if (main.multitoolutils.getToolInv(player).getItem(tooltype) != null) {
-										if (main.multitoolutils.getToolInv(player).getItem(tooltype).getType() != Material.GRAY_STAINED_GLASS_PANE) {
+									if (tooltype != 6) {
+										if (main.multitoolutils.getToolInv(player).getItem(tooltype) != null) {
+											if (main.multitoolutils.getToolInv(player).getItem(tooltype).getType() != Material.GRAY_STAINED_GLASS_PANE) {
 
-											givestack = main.multitoolutils.getToolInv(player).getItem(tooltype).clone();
-											main.lastblock.put(player.getUniqueId(), blocktype); //change the last block hit, if the tool was able to be changed
-											giveStack(givestack, player);
-											return;
+												givestack = main.multitoolutils.getToolInv(player).getItem(tooltype).clone();
+												main.lastblock.put(player.getUniqueId(), blocktype); //change the last block hit, if the tool was able to be changed
+												giveStack(givestack, player);
+												return;
+											}
 										}
 									}
 								} else {
