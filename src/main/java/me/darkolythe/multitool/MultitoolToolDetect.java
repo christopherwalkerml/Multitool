@@ -53,12 +53,9 @@ public class MultitoolToolDetect implements Listener {
 	@EventHandler
 	public void onInteract(PlayerInteractEvent event) {
 		
-		//Get player action
 		Action action = event.getAction();
 		
-		//Check if the action is a left click before advancing
 		if (action.equals(Action.LEFT_CLICK_BLOCK) || action.equals(Action.LEFT_CLICK_AIR)) {
-			//Set the player equal to a variable
 			Player player = event.getPlayer();
 			Block block = event.getClickedBlock();
 

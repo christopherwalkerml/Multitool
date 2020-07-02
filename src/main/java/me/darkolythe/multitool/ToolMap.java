@@ -464,34 +464,5 @@ public class ToolMap {
         map.put("SOUL_SOIL", 3);
         map.put("WHITE_CONCRETE_POWDER", 3);
         map.put("YELLOW_CONCRETE_POWDER", 3);
-
-        map.put("SHROOMLIGHT", 4);
-        map.put("TARGET", 4);
-        map.put("NETHER_WART_BLOCK", 4);
-        map.put("WARPED_WART_BLOCK", 4);
-        map.put("SPONGE", 4);
-        map.put("WET_SPONGE", 4);
-        map.put("DRIED_KELP_BLOCK", 4);
-        map.put("HAY_BLOCK", 4);
-
-        map.put("ACACIA_LEAVES", 5);
-        map.put("BIRCH_LEAVES", 5);
-        map.put("DARK_OAK_LEAVES", 5);
-        map.put("JUNGLE_LEAVES", 5);
-        map.put("OAK_LEAVES", 5);
-        map.put("SPRUCE_LEAVES", 5);
-        map.put("TWISTING_VINES_PLANT", 5);
-        map.put("VINE", 5);
-        map.put("WEEPING_VINES", 5);
-        map.put("WEEPING_VINES_PLANT", 5);
-        map.put("COBWEB", 5);
-        map.put("DEAD_BUSH", 5);
-        map.put("GRASS", 5);
-        map.put("TRIPWIRE", 5);
-        map.put("WOOL", 5);
-        map.put("SEAGRASS", 5);
-        map.put("TALL_GRASS", 5);
-        map.put("NETHER_SPROUTS", 5);
-        map.put("TWISTING_VINES", 5);
     }
 }
