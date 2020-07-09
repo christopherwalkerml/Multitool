@@ -40,7 +40,7 @@ public class MultitoolUtils implements Listener {
 
     public void playerLoad(Player player) {
 
-        Inventory inv = Bukkit.getServer().createInventory(player, InventoryType.HOPPER, ChatColor.GREEN + "Multitools"); //create the mv inv
+        Inventory inv = Bukkit.getServer().createInventory(player, InventoryType.HOPPER, ChatColor.BLUE + "Multitools"); //create the mv inv
 
         if (main.getConfig().contains("toolinv." + player.getUniqueId())) {
             int index = 0;
@@ -90,9 +90,11 @@ public class MultitoolUtils implements Listener {
     }
 
     private ItemStack loadItem(ConfigurationSection section) {
-        ItemStack itemstack = new ItemStack(section.getItemStack("itemstack"));
+        return new ItemStack(section.getItemStack("itemstack"));
+    }
 
-        return itemstack;
+    public void reload() {
+        main.dropondeath = main.getConfig().getBoolean("droptoolsondeath");
     }
 
 
@@ -118,7 +120,7 @@ public class MultitoolUtils implements Listener {
 
     public Inventory getToolInv(Player player) {
         if (!main.toolinv.containsKey(player.getUniqueId())) {
-            Inventory inv = Bukkit.getServer().createInventory(player, InventoryType.HOPPER, ChatColor.GREEN + "Multitools"); //create the mv inv
+            Inventory inv = Bukkit.getServer().createInventory(player, InventoryType.HOPPER, ChatColor.BLUE + "Multitools"); //create the mv inv
             for (int index = 0; index < 5; index++) {
                 inv.setItem(index, main.placeholders.get(index)); //if the player data is empty, set placeholders until the inv is saved
             }

@@ -28,6 +28,13 @@ public class MultitoolCommand implements CommandExecutor {
 							} else {
 								sender.sendMessage(main.prefix + ChatColor.GREEN + "Multitool Off!");
 							}
+						} else if (args[0].equalsIgnoreCase("Reload")) {
+							if (player.hasPermission("multitool.reload")) {
+								main.multitoolutils.reload();
+								player.sendMessage(main.prefix + ChatColor.GREEN + "The config has been reloaded");
+							} else {
+								sender.sendMessage(main.prefix + ChatColor.RED + "You do not have permission to do that!");
+							}
 						} else {
 							sender.sendMessage(main.prefix + ChatColor.RED + "Invalid Arguments: /mt [open, toggle]");
 						}
@@ -44,6 +51,8 @@ public class MultitoolCommand implements CommandExecutor {
 						sender.sendMessage(main.prefix + ChatColor.RED + "Invalid Arguments: /mt [open, toggle]");
 					}
 				}
+			} else {
+				sender.sendMessage(main.prefix + ChatColor.RED + "You do not have permission to do that!");
 			}
 		}
 		return true;

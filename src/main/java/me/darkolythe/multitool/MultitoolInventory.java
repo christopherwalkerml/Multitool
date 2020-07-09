@@ -40,7 +40,7 @@ public class MultitoolInventory implements Listener {
 
 			if (event.getClickedInventory() != null) { //if the user clicks an inventory
 				if (event.getClickedInventory() != player.getInventory()) {
-					if (view.getTitle().equals(ChatColor.GREEN + "Multitools")) {
+					if (view.getTitle().equals(ChatColor.BLUE + "Multitools")) {
 						if (player.getItemOnCursor().getType() != Material.AIR) { //if the cursor has an item in it
 							Material cursorstack = player.getItemOnCursor().getType();
 							if (event.getCurrentItem() != null) {

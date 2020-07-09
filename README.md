@@ -13,7 +13,7 @@ The purpose of this plugin is to make mining easier and to save space in the pla
 
 Commands:
 
-/multitool [open / toggle / reload]
+/multitool [open / toggle]
 
 "multitool" shortened as "mt". ex: /mt open
 
@@ -21,15 +21,11 @@ Commands:
 
 "toggle" shortened as "t". ex: /mt t
 
-"reload" cannot be shortened.
-
 Permissions:
 
 multitool.use (lets the player use the multitool in their hand)
 
 multitool.command (lets the player execute the multitool commands)
-
-multitool.reload (lets the player reload the multitool config)
 
 In-depth knowledge:
 

@@ -1,5 +1,5 @@
 name: MultitoolPlus
-version: 1.5.2
+version: 1.5.3
 author: Darkolythe
 main: me.darkolythe.multitool.Multitool
 api-version: 1.13
@@ -7,7 +7,7 @@ description: This plugin allows the use of multiple tools in one item, and switc
 
 commands:
     multitool:
-        usage: /<command> [open / toggle / reload]
+        usage: /<command> [open / toggle]
         aliases: [mt]
         description: the main Multitool command
         permission: multitool.command
@@ -21,7 +21,7 @@ permissions:
         description: Allows the use of multitool commands
         default: true
     multitool.reload:
-        description: Reloads the multitool config
+        description: Reloads config.yml
         default: op
     multitool.useothers:
         description: Allows the opening of other players' multitools
@@ -32,5 +32,4 @@ permissions:
         children:
             multitool.use: true
             multitool.command: true
-            multitool.reload: true
             multitool.useothers: true
