@@ -94,6 +94,7 @@ public class MultitoolUtils implements Listener {
     }
 
     public void reload() {
+        main.reloadConfig();
         main.dropondeath = main.getConfig().getBoolean("droptoolsondeath");
     }
 

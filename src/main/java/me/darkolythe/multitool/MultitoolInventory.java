@@ -46,17 +46,18 @@ public class MultitoolInventory implements Listener {
 							if (event.getCurrentItem() != null) {
 								ItemStack clickstack = event.getCurrentItem().clone();
 								if (clickstack.getType() == Material.GRAY_STAINED_GLASS_PANE) { //if the clicked item is a glass pane
+
 									String type = cursorstack.toString();
 									for (String s : toolMap.keySet()) {
-										if (type.contains(s)) {
+										if (type.contains(s) && inv.getItem(toolMap.get(s)).getType().equals(Material.GRAY_STAINED_GLASS_PANE)) {
 											inv.setItem(toolMap.get(s), player.getItemOnCursor());
 											player.setItemOnCursor(null);
 											break;
 										}
 									}
-									event.setCancelled(true);
 								}
 							}
+							event.setCancelled(true);
 						} else {
 							if (event.getCurrentItem() != null) {
 								ItemStack clickstack = event.getCurrentItem().clone();
@@ -74,15 +75,17 @@ public class MultitoolInventory implements Listener {
 									boolean forloop = false;
 									ItemStack genstack = null;
 									for (int i = 0; i < 5; i++) { //this loops through the mt inv, and gives the player the first multitool that shows up
-										Material curmat = main.toolinv.get(player.getUniqueId()).getItem(i).getType();
-										forloop = false;
-										if (curmat != Material.GRAY_STAINED_GLASS_PANE && curmat != Material.FEATHER) {
-											genstack = main.toolinv.get(player.getUniqueId()).getItem(i).clone();
-											ItemMeta genmeta = genstack.getItemMeta();
-											genmeta.setLore(addLore(genmeta, main.toollore, false));
-											genstack.setItemMeta(genmeta);
-											forloop = true; //this means a tool has been found, and will be given to the player if they have space
-											break;
+										if (main.toolinv.get(player.getUniqueId()).getItem(i) != null) {
+											Material curmat = main.toolinv.get(player.getUniqueId()).getItem(i).getType();
+											forloop = false;
+											if (curmat != Material.GRAY_STAINED_GLASS_PANE && curmat != Material.FEATHER) {
+												genstack = main.toolinv.get(player.getUniqueId()).getItem(i).clone();
+												ItemMeta genmeta = genstack.getItemMeta();
+												genmeta.setLore(addLore(genmeta, main.toollore, false));
+												genstack.setItemMeta(genmeta);
+												forloop = true; //this means a tool has been found, and will be given to the player if they have space
+												break;
+											}
 										}
 									}
 									if (!forloop) {
