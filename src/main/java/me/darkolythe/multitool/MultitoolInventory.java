@@ -49,10 +49,12 @@ public class MultitoolInventory implements Listener {
 
 									String type = cursorstack.toString();
 									for (String s : toolMap.keySet()) {
-										if (type.contains(s) && inv.getItem(toolMap.get(s)).getType().equals(Material.GRAY_STAINED_GLASS_PANE)) {
-											inv.setItem(toolMap.get(s), player.getItemOnCursor());
-											player.setItemOnCursor(null);
-											break;
+										if (type.contains("_" + s)) {
+											if (inv.getItem(toolMap.get(s)).getType().equals(Material.GRAY_STAINED_GLASS_PANE)) {
+												inv.setItem(toolMap.get(s), player.getItemOnCursor());
+												player.setItemOnCursor(null);
+												break;
+											}
 										}
 									}
 								}
@@ -64,7 +66,7 @@ public class MultitoolInventory implements Listener {
 								boolean removemt = false;
 								String type = clickstack.getType().toString();
 								for (String s : toolMap.keySet()) {
-									if (type.contains(s)) {
+									if (type.contains("_" + s)) {
 										inv.setItem(toolMap.get(s), main.placeholders.get(toolMap.get(s)));
 										player.setItemOnCursor(clickstack);
 										removemt = true;
