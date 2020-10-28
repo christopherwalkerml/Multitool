@@ -39,12 +39,15 @@ public class MultitoolCommand implements CommandExecutor {
 							sender.sendMessage(main.prefix + ChatColor.RED + "Invalid Arguments: /mt [open, toggle]");
 						}
 					} else if (args.length == 2 && (args[0].equalsIgnoreCase("Open") || args[0].equalsIgnoreCase("O"))) {
-
-						for (Player players : Bukkit.getServer().getOnlinePlayers()) {
-							if (args[1].equalsIgnoreCase(players.getName())) {
-								player.openInventory(main.multitoolutils.getToolInv(players));
-								return true;
+						if (player.hasPermission("multitool.useothers")) {
+							for (Player players : Bukkit.getServer().getOnlinePlayers()) {
+								if (args[1].equalsIgnoreCase(players.getName())) {
+									player.openInventory(main.multitoolutils.getToolInv(players));
+									return true;
+								}
 							}
+						} else {
+							sender.sendMessage(main.prefix + ChatColor.RED + "You do not have permission to do that!");
 						}
 						sender.sendMessage(main.prefix + ChatColor.RED + "Player is not online");
 					} else {
