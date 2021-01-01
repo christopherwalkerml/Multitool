@@ -170,6 +170,7 @@ public class ToolMap {
         map.put("PINK_GLAZED_TERRACOTTA", 1);
         map.put("PINK_SHULKER_BOX", 1);
         map.put("PINK_TERRACOTTA", 1);
+        map.put("PISTON", 1);
         map.put("POLISHED_ANDESITE", 1);
         map.put("POLISHED_ANDESITE_SLAB", 1);
         map.put("POLISHED_ANDESITE_STAIRS", 1);
@@ -235,6 +236,7 @@ public class ToolMap {
         map.put("SMOOTH_STONE_SLAB", 1);
         map.put("SOUL_LANTERN", 1);
         map.put("SPAWNER", 1);
+        map.put("STICKY_PISTON", 1);
         map.put("STONE", 1);
         map.put("STONECUTTER", 1);
         map.put("STONE_BRICKS", 1);
