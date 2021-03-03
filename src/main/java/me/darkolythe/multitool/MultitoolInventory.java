@@ -54,6 +54,7 @@ public class MultitoolInventory implements Listener {
 											for (String cursorLore : cursorstack.getItemMeta().getLore()) {
 												if (cursorLore.contains(lore)) {
 													blacklisted = true;
+													player.sendMessage(main.prefix + ChatColor.RED + "You cannot put that item in your multitool!");
 													break;
 												}
 											}
