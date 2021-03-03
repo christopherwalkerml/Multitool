@@ -2,3 +2,9 @@
 
 #Do players drop all the items in their multitool on death? (true or false)
 droptoolsondeath: false
+
+# lore blacklist. If a player tries to put an item in the multitool and the tool has any of
+# these lores, it wont be able to be added.
+# These lores don't need to match the line exactly.
+# ex: If the tool has "&bhello" as a lore, you can put "he" to blacklist it.
+lore-blacklist: ["blacklisted-lore", "&a&lanother-lore"]

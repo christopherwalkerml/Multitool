@@ -42,18 +42,34 @@ public class MultitoolInventory implements Listener {
 				if (event.getClickedInventory() != player.getInventory()) {
 					if (view.getTitle().equals(ChatColor.BLUE + "Multitools")) {
 						if (player.getItemOnCursor().getType() != Material.AIR) { //if the cursor has an item in it
-							Material cursorstack = player.getItemOnCursor().getType();
+							Material cursortype = player.getItemOnCursor().getType();
+							ItemStack cursorstack = player.getItemOnCursor().clone();
 							if (event.getCurrentItem() != null) {
 								ItemStack clickstack = event.getCurrentItem().clone();
 								if (clickstack.getType() == Material.GRAY_STAINED_GLASS_PANE) { //if the clicked item is a glass pane
 
-									String type = cursorstack.toString();
-									for (String s : toolMap.keySet()) {
-										if (type.contains("_" + s)) {
-											if (inv.getItem(toolMap.get(s)).getType().equals(Material.GRAY_STAINED_GLASS_PANE)) {
-												inv.setItem(toolMap.get(s), player.getItemOnCursor());
-												player.setItemOnCursor(null);
-												break;
+									boolean blacklisted = false;
+									if (cursorstack.getItemMeta() != null && cursorstack.getItemMeta().hasLore()) {
+										for (String lore : main.blacklistedLores) {
+											for (String cursorLore : cursorstack.getItemMeta().getLore()) {
+												if (cursorLore.contains(lore)) {
+													blacklisted = true;
+													break;
+												}
+											}
+											if (blacklisted) { break; }
+										}
+									}
+
+									if (!blacklisted) {
+										String type = cursortype.toString();
+										for (String s : toolMap.keySet()) {
+											if (type.contains("_" + s)) {
+												if (inv.getItem(toolMap.get(s)).getType().equals(Material.GRAY_STAINED_GLASS_PANE)) {
+													inv.setItem(toolMap.get(s), player.getItemOnCursor());
+													player.setItemOnCursor(null);
+													break;
+												}
 											}
 										}
 									}
