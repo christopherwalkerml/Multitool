@@ -81,6 +81,7 @@ public class ToolMap {
         map.put("DIAMOND_BLOCK", 1);
         map.put("DIAMOND_ORE", 1);
         map.put("DIORITE", 1);
+        map.put("DIORITE_SLAB", 1);
         map.put("DIORITE_STAIRS", 1);
         map.put("DIORITE_WALL", 1);
         map.put("DISPENSER", 1);
