@@ -25,6 +25,7 @@ public class Multitool extends JavaPlugin implements Listener {
 	public String toollore = ChatColor.BLUE.toString() + ChatColor.BOLD.toString() + "Multitool";
 
 	public boolean dropondeath;
+	public List<String> blacklistedLores = new ArrayList<>();
 
 	public static Multitool plugin;
 	public MultitoolInventory multitoolinventory;
@@ -45,6 +46,7 @@ public class Multitool extends JavaPlugin implements Listener {
 		saveDefaultConfig();
 
 		dropondeath = getConfig().getBoolean("droptoolsondeath");
+		blacklistedLores = getConfig().getStringList("lore-blacklist");
 
 		getServer().getPluginManager().registerEvents(this, this);
 		getServer().getPluginManager().registerEvents(multitoolevents, this);
@@ -69,7 +71,6 @@ public class Multitool extends JavaPlugin implements Listener {
 			multitoolutils.playerSave(player); //this saves all the player mt inv information if the server is reloading
 		}
 
-		getConfig().set("droptoolsondeath", dropondeath);
 		saveDefaultConfig();
 		
 		System.out.println(prefix + ChatColor.RED + "Diverse Multitool disabled!");
