@@ -34,7 +34,12 @@ public class MultitoolUtils implements Listener {
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
-        playerSave(event.getPlayer());
+        Bukkit.getServer().getScheduler().runTaskAsynchronously(main, new Runnable() {
+            @Override
+            public void run() {
+                playerSave(event.getPlayer());
+            }
+        });
     }
 
 
