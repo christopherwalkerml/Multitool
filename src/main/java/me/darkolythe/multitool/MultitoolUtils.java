@@ -82,6 +82,7 @@ public class MultitoolUtils implements Listener {
             }
         }
         main.saveConfig();
+        main.toolinv.remove(player.getUniqueId());
     }
 
 
