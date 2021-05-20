@@ -29,7 +29,12 @@ public class MultitoolUtils implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        playerLoad(event.getPlayer());
+        Bukkit.getServer().getScheduler().runTaskAsynchronously(main, new Runnable() {
+            @Override
+            public void run() {
+                playerLoad(event.getPlayer());
+            }
+        });
     }
 
     @EventHandler
