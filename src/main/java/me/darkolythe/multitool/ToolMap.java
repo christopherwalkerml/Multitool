@@ -355,6 +355,11 @@ public class ToolMap {
         map.put("POLISHED_BLACKSTONE_BRICK_WALL", 1);
         map.put("POLISHED_BLACKSTONE_WALL", 1);
         map.put("BLACKSTONE_WALL", 1);
+        map.put("MUD_BRICKS", 1);
+        map.put("MUD_BRICK_SLAB", 1);
+        map.put("MUD_BRICK_STAIRS", 1);
+        map.put("MUD_BRICK_WALL", 1);
+        map.put("PACKED_MUD", 1);
 
         map.put("ACACIA_BUTTON", 2);
         map.put("ACACIA_DOOR", 2);
@@ -521,6 +526,21 @@ public class ToolMap {
         map.put("CRIMSON_STAIRS", 2);
         map.put("CRIMSON_SLAB", 2);
         map.put("WARPED_SLAB", 2);
+        map.put("MANGROVE_BUTTON", 2);
+        map.put("MANGROVE_PLANKS", 2);
+        map.put("MANGROVE_LOG", 2);
+        map.put("MANGROVE_ROOTS", 2);
+        map.put("STRIPPED_MANGROVE_LOG", 2);
+        map.put("STRIPPED_MANGROVE_WOOD", 2);
+        map.put("MANGROVE_WOOD", 2);
+        map.put("MANGROVE_SLAB", 2);
+        map.put("MANGROVE_DOOR", 2);
+        map.put("MANGROVE_FENCE", 2);
+        map.put("MANGROVE_STAIRS", 2);
+        map.put("MANGROVE_PRESSURE_PLATE", 2);
+        map.put("MANGROVE_TRAPDOOR", 2);
+        map.put("MANGROVE_FENCE_GATE", 2);
+        map.put("MANGROVE_SIGN", 2);
 
         map.put("BLACK_CONCRETE_POWDER", 3);
         map.put("BLUE_CONCRETE_POWDER", 3);
@@ -554,5 +574,7 @@ public class ToolMap {
         map.put("SOUL_SOIL", 3);
         map.put("WHITE_CONCRETE_POWDER", 3);
         map.put("YELLOW_CONCRETE_POWDER", 3);
+        map.put("MUDDY_MANGROVE_ROOTS", 3);
+        map.put("MUD", 3);
     }
 }
