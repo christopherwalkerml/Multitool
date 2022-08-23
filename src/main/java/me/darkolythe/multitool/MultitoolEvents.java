@@ -97,16 +97,17 @@ public class MultitoolEvents implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerDeath(PlayerDeathEvent event) {
+		Player player = event.getEntity();
 		if (main.dropondeath) {
-			if (main.toolinv.containsKey(event.getEntity().getUniqueId())) {
+			if (main.toolinv.containsKey(player.getUniqueId())) {
 				if (!event.getKeepInventory()) {
-					for (ItemStack i : main.toolinv.get(event.getEntity().getUniqueId()).getContents()) {
+					for (ItemStack i : main.toolinv.get(player.getUniqueId()).getContents()) {
 						if (i.getType() != Material.FEATHER && i.getType() != Material.GRAY_STAINED_GLASS_PANE) {
-							event.getEntity().getWorld().dropItemNaturally(event.getEntity().getLocation(), i);
+							event.getDrops().add(i);
 						}
 					}
-					main.toolinv.remove(event.getEntity().getUniqueId());
-					main.multitoolutils.getToolInv(event.getEntity());
+					main.toolinv.remove(player.getUniqueId());
+					main.multitoolutils.getToolInv(player);
 				}
 			}
 		}
@@ -117,7 +118,7 @@ public class MultitoolEvents implements Listener {
 				if (main.multitoolutils.isTool(i)) {
 					i.setType(Material.AIR);
 					if (!main.dropondeath) {
-						event.getEntity().sendMessage(main.prefix + ChatColor.RED + "You died, so your Multitool was put away!");
+						player.sendMessage(main.prefix + ChatColor.RED + "You died, so your Multitool was put away!");
 					}
 				}
 			}

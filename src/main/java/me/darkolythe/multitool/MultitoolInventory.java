@@ -91,54 +91,7 @@ public class MultitoolInventory implements Listener {
 									}
 								}
 								if (type.contains("FEATHER")) {
-									boolean forloop = false;
-									ItemStack genstack = null;
-									for (int i = 0; i < 5; i++) { //this loops through the mt inv, and gives the player the first multitool that shows up
-										if (main.toolinv.get(player.getUniqueId()).getItem(i) != null) {
-											Material curmat = main.toolinv.get(player.getUniqueId()).getItem(i).getType();
-											forloop = false;
-											if (curmat != Material.GRAY_STAINED_GLASS_PANE && curmat != Material.FEATHER) {
-												genstack = main.toolinv.get(player.getUniqueId()).getItem(i).clone();
-												ItemMeta genmeta = genstack.getItemMeta();
-												genmeta.setLore(addLore(genmeta, main.toollore, false));
-												genstack.setItemMeta(genmeta);
-												forloop = true; //this means a tool has been found, and will be given to the player if they have space
-												break;
-											}
-										}
-									}
-									if (!forloop) {
-										player.sendMessage(main.prefix + ChatColor.RED + "The Multitool is empty!");
-									} else {
-										Inventory plrinv = player.getInventory();
-										boolean hasitem = false;
-										for (ItemStack i : plrinv) {
-											if (i != null) {
-												if (i.getItemMeta() != null) {
-													if (main.multitoolutils.isTool(i)) {
-														hasitem = true;
-													}
-												}
-											}
-										}
-
-										boolean giveitem;
-										if (plrinv.firstEmpty() == -1) {
-											giveitem = false;
-										} else {
-											giveitem = true;
-										}
-
-										if (giveitem && !hasitem) {
-											plrinv.addItem(genstack);
-											player.sendMessage(main.prefix + ChatColor.GREEN + "You have been given your Multitool!");
-											main.lastblock.put(player.getUniqueId(), Material.AIR);
-										} else if (!hasitem) {
-											player.sendMessage(main.prefix + ChatColor.RED + "There's no space in your inventory!");
-										} else {
-											player.sendMessage(main.prefix + ChatColor.RED + "You already have your multitool!");
-										}
-									}
+									giveMultitool(main, player);
 									event.setCancelled(true);
 									player.closeInventory();
 								}
@@ -166,7 +119,7 @@ public class MultitoolInventory implements Listener {
 		}
 	}
 
-	public List<String> addLore(ItemMeta meta, String line, boolean top) {
+	public static List<String> addLore(ItemMeta meta, String line, boolean top) {
 		List<String> newlore = new ArrayList<>();
 		if (!top) {
 			if (meta.hasLore() && meta.getLore() != null) {
@@ -187,5 +140,51 @@ public class MultitoolInventory implements Listener {
 			}
 		}
 		return newlore;
+	}
+
+	static void giveMultitool(Multitool main, Player player) {
+		boolean forloop = false;
+		ItemStack genstack = null;
+		for (int i = 0; i < 5; i++) { //this loops through the mt inv, and gives the player the first multitool that shows up
+			if (main.toolinv.get(player.getUniqueId()).getItem(i) != null) {
+				Material curmat = main.toolinv.get(player.getUniqueId()).getItem(i).getType();
+				forloop = false;
+				if (curmat != Material.GRAY_STAINED_GLASS_PANE && curmat != Material.FEATHER) {
+					genstack = main.toolinv.get(player.getUniqueId()).getItem(i).clone();
+					ItemMeta genmeta = genstack.getItemMeta();
+					genmeta.setLore(addLore(genmeta, main.toollore, false));
+					genstack.setItemMeta(genmeta);
+					forloop = true; //this means a tool has been found, and will be given to the player if they have space
+					break;
+				}
+			}
+		}
+		if (!forloop) {
+			player.sendMessage(main.prefix + ChatColor.RED + "The Multitool is empty!");
+		} else {
+			Inventory plrinv = player.getInventory();
+			boolean hasitem = false;
+			for (ItemStack i : plrinv) {
+				if (i != null) {
+					if (i.getItemMeta() != null) {
+						if (main.multitoolutils.isTool(i)) {
+							hasitem = true;
+						}
+					}
+				}
+			}
+
+			boolean giveitem = plrinv.firstEmpty() != -1;
+
+			if (giveitem && !hasitem) {
+				plrinv.addItem(genstack);
+				player.sendMessage(main.prefix + ChatColor.GREEN + "You have been given your Multitool!");
+				main.lastblock.put(player.getUniqueId(), Material.AIR);
+			} else if (!hasitem) {
+				player.sendMessage(main.prefix + ChatColor.RED + "There's no space in your inventory!");
+			} else {
+				player.sendMessage(main.prefix + ChatColor.RED + "You already have your multitool!");
+			}
+		}
 	}
 }
